@@ -4,9 +4,10 @@ import utils.UtilityClass;
 
 public class ProjectSpecificationMethods extends UtilityClass{
 
-	public void launchingBrowser() {
+	public void launchingBrowser(String url, String browser) throws Exception {
 		
-		browserLaunch();
+		
+		browserLaunch(url,browser);
 	}
 	
 	public void closeBrowser() {
