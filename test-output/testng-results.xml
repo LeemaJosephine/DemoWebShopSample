@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2024-07-10T12:52:45 IST" name="Default suite" finished-at="2024-07-10T12:52:45 IST" duration-ms="229">
+    <groups>
+    </groups>
+    <test started-at="2024-07-10T12:52:45 IST" name="Default test" finished-at="2024-07-10T12:52:45 IST" duration-ms="229">
+      <class name="test.AttributesSample">
+        <test-method signature="runMoreThanOnce()[pri:0, instance:test.AttributesSample@6aeb35e6]" started-at="2024-07-10T12:52:45 IST" name="runMoreThanOnce" finished-at="2024-07-10T12:52:45 IST" duration-ms="65" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runMoreThanOnce -->
+      </class> <!-- test.AttributesSample -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>
