@@ -10,6 +10,10 @@ import java.time.Duration;
 import java.util.Properties;
 
 import org.apache.commons.io.FileUtils;
+import org.apache.poi.xssf.usermodel.XSSFCell;
+import org.apache.poi.xssf.usermodel.XSSFRow;
+import org.apache.poi.xssf.usermodel.XSSFSheet;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
@@ -20,11 +24,14 @@ import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.edge.EdgeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
+import org.testng.Assert;
+import org.testng.asserts.SoftAssert;
 
 public class UtilityClass {
 
 	public static WebDriver driver;
 	public static Properties prop;
+	public String sheetname;
 	
 	public void browserLaunch(String url, String browser) throws Exception {
 		
@@ -94,5 +101,42 @@ public class UtilityClass {
 		File src = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
 		File dest = new File("C:\\Users\\Digital Suppliers\\eclipse-workspace\\DemoWenShopProject\\snap\\"+name+".png");
 		FileUtils.copyFile(src, dest);
+	}
+	
+	public static String[][] readExcel(String sheetname) throws Exception {
+		
+		XSSFWorkbook book = new XSSFWorkbook("C:\\Users\\Digital Suppliers\\eclipse-workspace\\DemoWebShopProject\\src\\test\\resources\\DemoWebShopDataFile.xlsx");
+		XSSFSheet sheet = book.getSheet(sheetname);
+		int rowcount = sheet.getLastRowNum();
+		short columncount = sheet.getRow(0).getLastCellNum();
+		
+		String[][] data = new String[rowcount][columncount];
+		for(int i = 1 ; i <= rowcount; i++) {
+			
+			XSSFRow row = sheet.getRow(i);
+			
+			for(int j = 0; j < columncount; j++) {
+				
+				XSSFCell cell = row.getCell(j);
+				data[i-1][j]=cell.getStringCellValue();
+			}
+		}
+		
+		book.close();
+		return data;
+	}
+	
+	public void assert_Check(String actualText,String expectedText) {
+		
+		// Hard Assertion
+		Assert.assertEquals(actualText, expectedText);
+	}
+	
+	public void soft_assert(String actualText,String expectedText) {
+		
+		SoftAssert assertObj = new SoftAssert();
+		assertObj.assertEquals(actualText, expectedText);
+		assertObj.assertAll();
+		
 	}
 }

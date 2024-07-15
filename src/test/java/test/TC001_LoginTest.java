@@ -10,25 +10,26 @@ import base.ProjectSpecificationMethods;
 import pages.HomePage;
 import pages.LoginPage;
 
-public class TC001_ValidLoginTest extends ProjectSpecificationMethods{
+public class TC001_LoginTest extends ProjectSpecificationMethods{
 
 	@BeforeTest
 	public void setup() throws Exception {
 		
 		readFromPropFile();
+		sheetname="LoginData";
 	}
 	
-	@Test
-	public void validLoginTest() throws Exception {
+	@Test(dataProvider = "getData")
+	public void validLoginTest(String mailid, String password, String type, String message) throws Exception {
 		
 
 		HomePage obj = new HomePage(driver);
 		LoginPage obj1 = new LoginPage(driver);
 		
 		obj.clickLogin();
-		obj1.enterEmail(prop.getProperty("Validemail"));
-		obj1.enterPassword(prop.getProperty("Validpassword"));
+		obj1.enterEmail(mailid);
+		obj1.enterPassword(password);
 		obj1.loginClick();
-		obj.validateLogin();
+		obj.validateLogin(type,message);
 	}
 }

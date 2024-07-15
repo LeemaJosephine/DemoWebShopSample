@@ -25,7 +25,7 @@ public class TC002_InvalidLoginTest extends ProjectSpecificationMethods{
 		obj1.enterEmail(prop.getProperty("Invalidemail"));
 		obj1.enterPassword(prop.getProperty("Invalidpass"));
 		obj1.loginClick();
-		obj.validateLogin();
+		//obj.validateLogin();
 	}
 
 }
