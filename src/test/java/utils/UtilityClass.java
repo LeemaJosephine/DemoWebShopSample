@@ -96,11 +96,13 @@ public class UtilityClass {
 		ele.sendKeys(value);
 	}
 	
-	public void screenShot(String name) throws IOException {
+	public String screenShot(String name) throws IOException {
 		
+		String path ="C:\\Users\\Digital Suppliers\\eclipse-workspace\\DemoWenShopProject\\snap\\"+name+".png";
 		File src = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
-		File dest = new File("C:\\Users\\Digital Suppliers\\eclipse-workspace\\DemoWenShopProject\\snap\\"+name+".png");
+		File dest = new File(path);
 		FileUtils.copyFile(src, dest);
+		return path;
 	}
 	
 	public static String[][] readExcel(String sheetname) throws Exception {

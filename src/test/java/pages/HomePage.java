@@ -41,12 +41,7 @@ public class HomePage extends ProjectSpecificationMethods{
 			
 		// Valid login validation
 		String actualtext = validLoginText.getText();
-		try {
 		screenShot("Valid LoginTest_Validation");
-		} catch (Exception e) {
-			// TODO: handle exception
-			e.printStackTrace();
-		}
 		assert_Check(actualtext,message);
 		
 		
