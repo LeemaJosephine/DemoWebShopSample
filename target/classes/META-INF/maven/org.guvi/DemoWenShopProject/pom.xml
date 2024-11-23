@@ -45,6 +45,13 @@
     <version>5.1.2</version>
 </dependency>
 
+<!-- https://mvnrepository.com/artifact/io.github.sukgu/automation -->
+<dependency>
+    <groupId>io.github.sukgu</groupId>
+    <artifactId>automation</artifactId>
+    <version>0.1.5</version>
+</dependency>
+
   </dependencies>
   
   <build>
@@ -61,6 +68,7 @@
                </configuration>
             </plugin>
            </plugins>
+           
          </pluginManagement>
 	    </build>
   

@@ -23,13 +23,12 @@ public class TC001_LoginTest extends ProjectSpecificationMethods{
 	public void validLoginTest(String mailid, String password, String type, String message) throws Exception {
 		
 
-		HomePage obj = new HomePage(driver);
-		LoginPage obj1 = new LoginPage(driver);
+		 new HomePage(driver)
+		 .clickLogin()
+		 .enterEmail(mailid)
+		 .enterPassword(password)
+		 .loginClick()
+		 .validateLogin(type, message);
 		
-		obj.clickLogin();
-		obj1.enterEmail(mailid);
-		obj1.enterPassword(password);
-		obj1.loginClick();
-		obj.validateLogin(type,message);
 	}
 }

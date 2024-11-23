@@ -12,6 +12,7 @@ public class ExtentReportDemoWebShop {
 		ExtentSparkReporter reporter = new ExtentSparkReporter(path);
 		reporter.config().setReportName("DemoWebShop Reporter");
 		
+		
 		// To capture test data
 		ExtentReports extent = new ExtentReports();
 		extent.attachReporter(reporter);
